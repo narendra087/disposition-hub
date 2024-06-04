@@ -16,7 +16,7 @@
 
 <body class="h-full antialiased">
     <div class="min-h-full">
-        <nav class="bg-primary">
+        <nav class="bg-primary-main">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex h-16 items-center justify-between">
                     <div class="flex items-center">
@@ -167,16 +167,19 @@
 
         <header class="bg-white shadow">
             <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-                <h1 class="text-2xl font-bold tracking-tight text-gray-900 text-center">Disposition Form</h1>
+                <h1 class="text-2xl font-bold tracking-tight text-gray-900 text-center">{{ $title }}</h1>
             </div>
         </header>
         <main>
-            <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
                 {{ $slot }}
             </div>
         </main>
     </div>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="../path/to/flowbite/dist/datepicker.js"></script>
 </body>
 
 </html>
