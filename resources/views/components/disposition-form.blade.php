@@ -1,5 +1,5 @@
 <form>
-    <div class="space-y-12 max-w-3xl mx-auto p-6 bg-white rounded-lg">
+    <div class="mx-auto max-w-3xl space-y-12 rounded-lg bg-white p-6">
 
         <div class="border-b border-gray-900/10 pb-12">
             <h2 class="text-base font-semibold leading-7 text-gray-900">Data Pemohon</h2>
@@ -12,7 +12,7 @@
                         Nama Pemohon <span class="text-red-500">*</span></label>
                     <div class="mt-2">
                         <input type="text" name="nama-pemohon" id="nama-pemohon" autocomplete="nama-pemohon"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -21,7 +21,7 @@
                         <span class="text-red-500">*</span></label>
                     <div class="mt-2">
                         <input type="text" name="nomor-identitas" id="nomor-identitas" autocomplete="NIP/NUP/NIM"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -30,7 +30,7 @@
                         WhatsApp <span class="text-red-500">*</span></label>
                     <div class="mt-2">
                         <input type="text" name="nomor-telepon" id="nomor-telepon" autocomplete="+62"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -39,7 +39,7 @@
                             class="text-red-500">*</span></label>
                     <div class="mt-2">
                         <input type="text" name="jabatan" id="jabatan" autocomplete="jabatan"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -48,7 +48,7 @@
                         Studi <span class="text-red-500">*</span></label>
                     <div class="mt-2">
                         <input type="text" name="program-studi" id="program-studi" autocomplete="program-studi"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@
                         Organisasi</label>
                     <div class="mt-2">
                         <input type="text" name="nama-organisasi" id="nama-organisasi" autocomplete="nama-organisasi"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -76,7 +76,7 @@
                         Judul Permohonan <span class="text-red-500">*</span></label>
                     <div class="mt-2">
                         <input type="text" name="judul-pemohon" id="judul-pemohon" autocomplete="judul-pemohon"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
                 <div class="sm:col-span-3">
@@ -84,7 +84,7 @@
                         Mulai Kegiatan <span class="text-red-500">*</span></label>
                     <div class="mt-2">
                         <input type="text" name="tanggal-mulai" id="tanggal-mulai" autocomplete="tanggal-mulai"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
                         Akhir Kegiatan <span class="text-red-500">*</span></label>
                     <div class="mt-2">
                         <input type="text" name="tanggal-akhir" id="tanggal-akhir" autocomplete="tanggal-akhir"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -103,7 +103,7 @@
                     <div class="mt-2">
                         <input type="text" name="peserta-kegiatan" id="peserta-kegiatan"
                             autocomplete="peserta-kegiatan"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -113,7 +113,7 @@
                     <div class="mt-2">
                         <input type="text" name="jumlah-peserta" id="jumlah-peserta"
                             autocomplete="jumlah-peserta"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -123,7 +123,7 @@
                     <div class="mt-2">
                         <input type="text" name="tempat-kegiatan" id="tempat-kegiatan"
                             autocomplete="tempat-kegiatan"
-                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -133,7 +133,7 @@
                         Kegiatan <span class="text-red-500">*</span></label>
                     <div class="mt-2">
                         <input type="file" name="permohonan-proposal" id="permohonan-proposal"
-                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                            class="block w-full cursor-pointer rounded-md border border-gray-300 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400">
                     </div>
                 </div>
 
@@ -142,7 +142,7 @@
                         Pemohon <span class="text-red-500">*</span></label>
                     <div class="mt-2">
                         <input type="file" name="tanda-tangan" id="tanda-tangan"
-                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-md cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400">
+                            class="block w-full cursor-pointer rounded-md border border-gray-300 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400">
                     </div>
                 </div>
             </div>
