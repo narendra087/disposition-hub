@@ -1,32 +1,5 @@
 @php
     $tableHeader = ['Tanggal', 'Pemohon', 'Program Studi', 'Judul', 'Tanggal Mulai', 'Tanggal Akhir'];
-
-    $tableData = [
-        [
-            'tanggal' => '2022-01-01',
-            'pemohon' => 'Pemohon 1',
-            'prodi' => 'S1 Teknik Informatika',
-            'judul' => 'Judul 1',
-            'tgl_mulai' => '2022-01-01',
-            'tgl_akhir' => '2022-01-01',
-        ],
-        [
-            'tanggal' => '2022-01-01',
-            'pemohon' => 'Pemohon 2',
-            'prodi' => 'S1 Teknik Informatika',
-            'judul' => 'Judul 2',
-            'tgl_mulai' => '2022-01-01',
-            'tgl_akhir' => '2022-01-01',
-        ],
-        [
-            'tanggal' => '2022-01-01',
-            'pemohon' => 'Pemohon 3',
-            'prodi' => 'S1 Teknik Informatika',
-            'judul' => 'Judul 3',
-            'tgl_mulai' => '2022-01-01',
-            'tgl_akhir' => '2022-01-01',
-        ],
-    ];
 @endphp
 
 <x-app-layout>
@@ -106,7 +79,7 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <div class="h-full max-h-[calc(100vh-15rem)] overflow-y-auto space-y-4 p-4 md:p-5">
+                <div class="h-full max-h-[calc(100vh-15rem)] space-y-4 overflow-y-auto p-4 md:p-5">
                     <h2 class="text-lg font-medium">Data Pemohon:</h2>
                     <div>
                         <p class="text-base font-medium text-gray-900 dark:text-white">Nama:
@@ -161,7 +134,8 @@
                         </p>
 
                         <p class="text-base font-medium text-gray-900 dark:text-white">Surat Permohonan / Proposal:
-                            <span id="mdl-proposal" class="font-normal text-gray-500 dark:text-gray-400 underline cursor-pointer"></span>
+                            <span id="mdl-proposal"
+                                class="cursor-pointer font-normal text-gray-500 underline dark:text-gray-400"></span>
                         </p>
 
                         <p id="mdl-ttd" class="text-base font-medium text-gray-900 dark:text-white">Tanda Tangan:
@@ -170,18 +144,28 @@
                 </div>
                 <!-- Modal footer -->
                 <div
-                    class="flex items-center justify-center rounded-b border-t border-gray-200 p-4 dark:border-gray-600 md:p-5">
-                    <button data-modal-hide="disposition-detail" type="button"
-                        class="mb-2 me-2 rounded-lg bg-red-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Tolak
-                        Permohonan</button>
+                    class="flex items-center justify-between gap-2 rounded-b border-t border-gray-200 p-4 dark:border-gray-600 md:p-5">
+                    <div class="flex items-center gap-2">
+                        <button data-modal-hide="disposition-detail" type="button"
+                            class="rounded-lg bg-red-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Tolak
+                            Permohonan</button>
 
-                    <button data-modal-hide="disposition-detail" type="button"
-                        class="mb-2 me-2 rounded-lg bg-yellow-400 px-5 py-2.5 text-sm font-medium text-white hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900">Tanpa
-                        Disposisi</button>
+                        <button data-modal-hide="disposition-detail" type="button"
+                            class="rounded-lg bg-yellow-400 px-5 py-2.5 text-sm font-medium text-white hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900">Tanpa
+                            Disposisi</button>
+                    </div>
 
-                    <button data-modal-hide="disposition-detail" type="button"
-                        class="mb-2 me-2 rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Kirim
-                        Disposisi</button>
+                    <form id="kirim-disposisi" method="POST">
+                        <div class="flex items-center gap-2">
+                            @csrf
+                            <input required placeholder="Kode" type="text" name="kode" id="kode"
+                                autocomplete="kode"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
+                            <button type="submit"
+                                class="rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Kirim
+                                Disposisi</button>
+                        </div>
+                    </form>
 
                 </div>
             </div>
@@ -231,5 +215,30 @@
 
     $('#mdl-ttd').click(() => {
         window.open(publicPath + 'uploads/' + selectedApp.ttd_pemohon, '_blank')
+    })
+
+    // Send Disposition Function
+    $(document).ready(function() {
+        $('#kirim-disposisi').on('submit', function(e) {
+            e.preventDefault()
+
+            const data = {
+                _token: "{{ csrf_token() }}",
+                application_id: selectedApp.id,
+                kode: $('#kode').val(),
+            }
+
+            $.ajax({
+                url: '{{ route('admin.send_disposition') }}',
+                method: 'POST',
+                data,
+                success: function(response) {
+                    alert('Form berhasil dikirim!');
+                },
+                error: function(xhr) {
+                    alert('Terjadi kesalahan: ' + xhr.status + ' ' + xhr.statusText);
+                }
+            })
+        })
     })
 </script>

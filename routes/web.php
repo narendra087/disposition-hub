@@ -24,3 +24,4 @@ Route::get('/masuk', function () {
 });
 
 Route::get('/admin', [Controllers\AdminController::class, 'index']);
+Route::post('/kirim-disposisi', [Controllers\AdminController::class, 'sendDisposition'])->name('admin.send_disposition');
