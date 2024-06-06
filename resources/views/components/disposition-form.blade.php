@@ -18,7 +18,7 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('nama_pemohon')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
 
@@ -30,7 +30,8 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('id_pemohon')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label
+                            class="mt-1 block text-xs capitalize text-red-600">{{ Str::replace('id pemohon', 'NIP/NUP/NIM', $message) }}</label>
                     @enderror
                 </div>
 
@@ -42,7 +43,7 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('email')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
 
@@ -54,7 +55,8 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('no_wa')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label
+                            class="mt-1 block text-xs capitalize text-red-600">{{ Str::replace('no wa', 'nomor whatsapp', $message) }}</label>
                     @enderror
                 </div>
 
@@ -66,7 +68,7 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('jabatan')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
 
@@ -78,7 +80,7 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('program_studi')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
 
@@ -90,7 +92,7 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('organisasi')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
 
@@ -112,7 +114,7 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('judul')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
                 <div class="sm:col-span-3">
@@ -123,7 +125,7 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('tgl_mulai')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
 
@@ -135,7 +137,7 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('tgl_akhir')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
 
@@ -147,7 +149,7 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('peserta')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
 
@@ -160,7 +162,7 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('jumlah_peserta')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
 
@@ -173,7 +175,7 @@
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
                     @error('tempat_kegiatan')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
 
@@ -186,7 +188,7 @@
                             class="block w-full cursor-pointer rounded-md border border-gray-300 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400">
                     </div>
                     @error('surat_permohonan')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label class="mt-1 block text-xs capitalize text-red-600">{{ $message }}</label>
                     @enderror
                 </div>
 
@@ -199,7 +201,8 @@
                             class="block w-full cursor-pointer rounded-md border border-gray-300 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400">
                     </div>
                     @error('ttd_pemohon')
-                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                        <label
+                            class="mt-1 block text-xs capitalize text-red-600">{{ Str::replace('ttd', 'tanda tangan', $message) }}</label>
                     @enderror
                 </div>
             </div>
