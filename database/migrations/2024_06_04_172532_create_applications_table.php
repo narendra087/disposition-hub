@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('nama_pemohon');
+            $table->string('nama_pemohon');
             $table->string('id_pemohon');
             $table->string('no_wa');
             $table->string('email');

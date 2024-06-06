@@ -21,56 +21,56 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'username' => 'admin',
-            'password' => 'admin',
+            'password' => bcrypt('admin'),
             'role_id' => 1,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'username' => 'Dekan',
-            'password' => 'fst1',
+            'password' => bcrypt('fst1'),
             'role_id' => 2,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'username' => 'WD1',
-            'password' => 'fstwd1',
+            'password' => bcrypt('fstwd1'),
             'role_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'username' => 'WD2',
-            'password' => 'fstwd2',
+            'password' => bcrypt('fstwd2'),
             'role_id' => 4,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'username' => 'WD3',
-            'password' => 'fstwd3',
+            'password' => bcrypt('fstwd3'),
             'role_id' => 5,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'username' => 'KTU',
-            'password' => 'fstktu',
+            'password' => bcrypt('fstktu'),
             'role_id' => 6,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'username' => 'subkoor',
-            'password' => 'fstkoor',
+            'password' => bcrypt('fstkoor'),
             'role_id' => 7,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'username' => 'tendik',
-            'password' => 'fsttendik',
+            'password' => bcrypt('fsttendik'),
             'role_id' => 8,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),

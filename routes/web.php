@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+use App\Http\Controllers;
+
+Route::get('/', [Controllers\ApplicationController::class, 'index']);
+
+Route::post('/', [Controllers\ApplicationController::class, 'store']);
+
+Route::get('/masuk', function () {
+    return view('auth.login');
 });
 
-Route::get('/login', function () {
-    return view('auth.login');
+Route::get('/admin', function () {
+    return view('admin.dashboard');
 });
