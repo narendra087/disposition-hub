@@ -1,5 +1,8 @@
-<form>
+<form action="/" method="POST" enctype="multipart/form-data" novalidate>
+    @csrf
     <div class="mx-auto max-w-3xl space-y-12 rounded-lg bg-white p-6">
+
+        @dump($errors)
 
         <div class="border-b border-gray-900/10 pb-12">
             <h2 class="text-base font-semibold leading-7 text-gray-900">Data Pemohon</h2>
@@ -8,38 +11,51 @@
 
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="sm:col-span-3">
-                    <label for="nama-pemohon" class="block text-sm font-medium leading-6 text-gray-900">
+                    <label for="nama_pemohon" class="block text-sm font-medium leading-6 text-gray-900">
                         Nama Pemohon <span class="text-red-500">*</span></label>
                     <div class="mt-2">
-                        <input type="text" name="nama-pemohon" id="nama-pemohon" autocomplete="nama-pemohon"
+                        <input type="text" name="nama_pemohon" id="nama_pemohon" autocomplete="nama_pemohon"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('nama_pemohon')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="sm:col-span-3">
-                    <label for="nomor-identitas" class="block text-sm font-medium leading-6 text-gray-900">NIP/NUP/NIM
+                    <label for="id_pemohon" class="block text-sm font-medium leading-6 text-gray-900">NIP/NUP/NIM
                         <span class="text-red-500">*</span></label>
                     <div class="mt-2">
-                        <input type="text" name="nomor-identitas" id="nomor-identitas" autocomplete="NIP/NUP/NIM"
+                        <input type="text" name="id_pemohon" id="id_pemohon" autocomplete="NIP/NUP/NIM"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('id_pemohon')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="sm:col-span-3">
-                    <label for="email-address" class="block text-sm font-medium leading-6 text-gray-900">Alamat Email <span class="text-red-500">*</span></label>
+                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Alamat Email <span
+                            class="text-red-500">*</span></label>
                     <div class="mt-2">
-                        <input type="email" name="email-address" id="email-address" autocomplete="email"
+                        <input type="email" name="email" id="email" autocomplete="email"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('email')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="sm:col-span-3">
-                    <label for="nomor-telepon" class="block text-sm font-medium leading-6 text-gray-900">Nomor
+                    <label for="no_wa" class="block text-sm font-medium leading-6 text-gray-900">Nomor
                         WhatsApp <span class="text-red-500">*</span></label>
                     <div class="mt-2">
-                        <input type="text" name="nomor-telepon" id="nomor-telepon" autocomplete="+62"
+                        <input type="text" name="no_wa" id="no_wa" autocomplete="+62"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('no_wa')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="sm:col-span-3">
@@ -49,24 +65,33 @@
                         <input type="text" name="jabatan" id="jabatan" autocomplete="jabatan"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('jabatan')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="sm:col-span-3">
-                    <label for="program-studi" class="block text-sm font-medium leading-6 text-gray-900">Program
+                    <label for="program_studi" class="block text-sm font-medium leading-6 text-gray-900">Program
                         Studi <span class="text-red-500">*</span></label>
                     <div class="mt-2">
-                        <input type="text" name="program-studi" id="program-studi" autocomplete="program-studi"
+                        <input type="text" name="program_studi" id="program_studi" autocomplete="program_studi"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('program_studi')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="col-span-full">
-                    <label for="nama-organisasi" class="block text-sm font-medium leading-6 text-gray-900">Nama
+                    <label for="organisasi" class="block text-sm font-medium leading-6 text-gray-900">Nama
                         Organisasi</label>
                     <div class="mt-2">
-                        <input type="text" name="nama-organisasi" id="nama-organisasi" autocomplete="nama-organisasi"
+                        <input type="text" name="organisasi" id="organisasi" autocomplete="organisasi"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('organisasi')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
             </div>
@@ -80,78 +105,102 @@
 
             <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="col-span-full">
-                    <label for="judul-pemohon" class="block text-sm font-medium leading-6 text-gray-900">
+                    <label for="judul" class="block text-sm font-medium leading-6 text-gray-900">
                         Judul Permohonan <span class="text-red-500">*</span></label>
                     <div class="mt-2">
-                        <input type="text" name="judul-pemohon" id="judul-pemohon" autocomplete="judul-pemohon"
+                        <input type="text" name="judul" id="judul" autocomplete="judul"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('judul')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
                 <div class="sm:col-span-3">
-                    <label for="tanggal-mulai" class="block text-sm font-medium leading-6 text-gray-900">Tanggal
+                    <label for="tgl_mulai" class="block text-sm font-medium leading-6 text-gray-900">Tanggal
                         Mulai Kegiatan <span class="text-red-500">*</span></label>
                     <div class="mt-2">
-                        <input type="text" name="tanggal-mulai" id="tanggal-mulai" autocomplete="tanggal-mulai"
+                        <input type="date" name="tgl_mulai" id="tgl_mulai" autocomplete="tgl_mulai"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('tgl_mulai')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="sm:col-span-3">
-                    <label for="tanggal-akhir" class="block text-sm font-medium leading-6 text-gray-900">Tanggal
+                    <label for="tgl_akhir" class="block text-sm font-medium leading-6 text-gray-900">Tanggal
                         Akhir Kegiatan <span class="text-red-500">*</span></label>
                     <div class="mt-2">
-                        <input type="text" name="tanggal-akhir" id="tanggal-akhir" autocomplete="tanggal-akhir"
+                        <input type="date" name="tgl_akhir" id="tgl_akhir" autocomplete="tgl_akhir"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('tgl_akhir')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="sm:col-span-3">
-                    <label for="peserta-kegiatan" class="block text-sm font-medium leading-6 text-gray-900">Peserta
+                    <label for="peserta" class="block text-sm font-medium leading-6 text-gray-900">Peserta
                         Kegiatan</label>
                     <div class="mt-2">
-                        <input type="text" name="peserta-kegiatan" id="peserta-kegiatan"
-                            autocomplete="peserta-kegiatan"
+                        <input type="text" name="peserta" id="peserta" autocomplete="peserta"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('peserta')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="sm:col-span-3">
-                    <label for="jumlah-peserta" class="block text-sm font-medium leading-6 text-gray-900">Jumlah
+                    <label for="jumlah_peserta" class="block text-sm font-medium leading-6 text-gray-900">Jumlah
                         Peserta</label>
                     <div class="mt-2">
-                        <input type="text" name="jumlah-peserta" id="jumlah-peserta"
-                            autocomplete="jumlah-peserta"
+                        <input type="number" name="jumlah_peserta" id="jumlah_peserta"
+                            autocomplete="jumlah_peserta"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('jumlah_peserta')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="sm:col-span-3">
-                    <label for="tempat-kegiatan" class="block text-sm font-medium leading-6 text-gray-900">Tempat
+                    <label for="tempat_kegiatan" class="block text-sm font-medium leading-6 text-gray-900">Tempat
                         Kegiatan</label>
                     <div class="mt-2">
-                        <input type="text" name="tempat-kegiatan" id="tempat-kegiatan"
-                            autocomplete="tempat-kegiatan"
+                        <input type="text" name="tempat_kegiatan" id="tempat_kegiatan"
+                            autocomplete="tempat_kegiatan"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                     </div>
+                    @error('tempat_kegiatan')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="sm:col-span-full">
-                    <label for="permohonan-proposal" class="block text-sm font-medium leading-6 text-gray-900">Surat
+                    <label for="surat_permohonan" class="block text-sm font-medium leading-6 text-gray-900">Surat
                         Permohonan / Proposal
                         Kegiatan <span class="text-red-500">*</span></label>
                     <div class="mt-2">
-                        <input type="file" name="permohonan-proposal" id="permohonan-proposal"
+                        <input type="file" accept="application/pdf" name="surat_permohonan" id="surat_permohonan"
                             class="block w-full cursor-pointer rounded-md border border-gray-300 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400">
                     </div>
+                    @error('surat_permohonan')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
 
                 <div class="sm:col-span-full">
-                    <label for="tanda-tangan" class="block text-sm font-medium leading-6 text-gray-900">Tanda Tangan
+                    <label for="ttd_pemohon" class="block text-sm font-medium leading-6 text-gray-900">Tanda Tangan
                         Pemohon <span class="text-red-500">*</span></label>
                     <div class="mt-2">
-                        <input type="file" name="tanda-tangan" id="tanda-tangan"
+                        <input type="file" accept="image/png, image/jpeg, image/jpg" name="ttd_pemohon"
+                            id="ttd_pemohon"
                             class="block w-full cursor-pointer rounded-md border border-gray-300 text-sm text-gray-900 focus:outline-none dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:placeholder-gray-400">
                     </div>
+                    @error('ttd_pemohon')
+                        <label class="block text-xs text-red-600 mt-1">{{ $message }}</label>
+                    @enderror
                 </div>
             </div>
 

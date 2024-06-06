@@ -12,6 +12,7 @@
 
         <!-- Styles -->
         @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
     </head>
 
     <body class="h-full antialiased">
@@ -184,7 +185,6 @@
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-        <script src="../path/to/flowbite/dist/datepicker.js"></script>
     </body>
 
 </html>
