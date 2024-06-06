@@ -48,34 +48,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($tableData as $td)
+                    @foreach ($applications as $app)
                         <tr
                             class="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
                             <th scope="row"
                                 class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
-                                {{ $td['tanggal'] }}
+                                {{ $app['created_at']->format('Y-m-d') }}
                             </th>
                             <td class="px-6 py-4">
-                                {{ $td['pemohon'] }}
+                                {{ $app['nama_pemohon'] }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $td['prodi'] }}
+                                {{ $app['program_studi'] }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $td['judul'] }}
+                                {{ $app['judul'] }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $td['tgl_mulai'] }}
+                                {{ $app['tgl_mulai'] }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $td['tgl_akhir'] }}
+                                {{ $app['tgl_akhir'] }}
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <button onclick="saveDispositionData({{ json_encode($td) }})"
+                                <button onclick="saveDispositionData({{ json_encode($app) }})"
                                     data-modal-target="disposition-detail" data-modal-toggle="disposition-detail"
                                     class="block rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                     type="button">
-                                    View
+                                    Lihat
                                 </button>
                             </td>
                         </tr>
@@ -87,15 +87,13 @@
 
     {{-- Modal --}}
     <div id="disposition-detail" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
-        class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
+        class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-hidden md:inset-0">
         <div class="relative max-h-full w-full max-w-4xl p-4">
             <!-- Modal content -->
             <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-5">
-                    <h3 id="mdl-judul" class="text-xl font-semibold text-gray-900 dark:text-white">
-                        Judul Permohonan
-                    </h3>
+                    <h3 id="mdl-judul" class="text-xl font-semibold text-gray-900 dark:text-white"></h3>
                     <button type="button"
                         class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white"
                         data-modal-hide="disposition-detail">
@@ -108,26 +106,83 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <div class="space-y-4 p-4 md:p-5">
-                    <h2>Data Pemohon</h2>
-                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                        With less than a month to go before the European Union enacts new consumer privacy laws for its
-                        citizens, companies around the world are updating their terms of service agreements to comply.
-                    </p>
-                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                        The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25
-                        and is
-                        meant to ensure a common set of data rights in the European Union. It requires organizations to
-                        notify users as soon as possible of high-risk data breaches that could personally affect them.
-                    </p>
+                <div class="h-full max-h-[calc(100vh-15rem)] overflow-y-auto space-y-4 p-4 md:p-5">
+                    <h2 class="text-lg font-medium">Data Pemohon:</h2>
+                    <div>
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Nama:
+                            <span id="mdl-nama-pemohon" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+
+                        <p class="text-base font-medium text-gray-900 dark:text-white">NIP/NUP/NIM:
+                            <span id="mdl-id-pemohon" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Nomor Whatsapp:
+                            <span id="mdl-no-wa" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Email:
+                            <span id="mdl-email" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Jabatan:
+                            <span id="mdl-jabatan" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Program Studi:
+                            <span id="mdl-program-studi" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Organisasi:
+                            <span id="mdl-organisasi" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+                    </div>
+
+                    <h2 class="text-lg font-medium">Data Permohonan:</h2>
+                    <div>
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Tanggal Mulai:
+                            <span id="mdl-tgl-mulai" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Tanggal Selesai:
+                            <span id="mdl-tgl-akhir" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Peserta:
+                            <span id="mdl-peserta" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Jumlah Peserta:
+                            <span id="mdl-jumlah-peserta" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Tempat Kegiatan:
+                            <span id="mdl-tempat-kegiatan" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                        </p>
+
+                        <p class="text-base font-medium text-gray-900 dark:text-white">Surat Permohonan / Proposal:
+                            <span id="mdl-proposal" class="font-normal text-gray-500 dark:text-gray-400 underline cursor-pointer"></span>
+                        </p>
+
+                        <p id="mdl-ttd" class="text-base font-medium text-gray-900 dark:text-white">Tanda Tangan:
+                        </p>
+                    </div>
                 </div>
                 <!-- Modal footer -->
-                <div class="flex items-center rounded-b border-t border-gray-200 p-4 dark:border-gray-600 md:p-5">
+                <div
+                    class="flex items-center justify-center rounded-b border-t border-gray-200 p-4 dark:border-gray-600 md:p-5">
                     <button data-modal-hide="disposition-detail" type="button"
-                        class="rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
-                        accept</button>
+                        class="mb-2 me-2 rounded-lg bg-red-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Tolak
+                        Permohonan</button>
+
                     <button data-modal-hide="disposition-detail" type="button"
-                        class="ms-3 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">Decline</button>
+                        class="mb-2 me-2 rounded-lg bg-yellow-400 px-5 py-2.5 text-sm font-medium text-white hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:focus:ring-yellow-900">Tanpa
+                        Disposisi</button>
+
+                    <button data-modal-hide="disposition-detail" type="button"
+                        class="mb-2 me-2 rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Kirim
+                        Disposisi</button>
+
                 </div>
             </div>
         </div>
@@ -135,8 +190,46 @@
 </x-app-layout>
 
 <script type="module">
+    const publicPath = '{{ asset('') }}';
+    let selectedApp = null;
+
     window.saveDispositionData = (data) => {
-        console.log(data)
+        selectedApp = data
+        $("#mdl-nama-pemohon").text(data.nama_pemohon);
+        $("#mdl-id-pemohon").text(data.id_pemohon);
+        $("#mdl-no-wa").text(data.no_wa);
+        $("#mdl-email").text(data.email);
+        $("#mdl-jabatan").text(data.jabatan);
+        $("#mdl-program-studi").text(data.program_studi);
+        $("#mdl-organisasi").text(data.organisasi ? data.organisasi : '-');
         $("#mdl-judul").text(data.judul);
+        $("#mdl-tgl-mulai").text(data.tgl_mulai);
+        $("#mdl-tgl-akhir").text(data.tgl_akhir);
+        $("#mdl-peserta").text(data.peserta ? data.peserta : '-');
+        $("#mdl-jumlah-peserta").text(data.jumlah_peserta ? data.jumlah_peserta : '-');
+        $("#mdl-tempat-kegiatan").text(data.tempat_kegiatan ? data.tempat_kegiatan : '-');
+        $("#mdl-proposal").text(data.surat_permohonan);
+
+        // Remove old signature image
+        const oldImage = document.getElementById('ttd-image');
+        if (oldImage) {
+            oldImage.remove();
+        }
+        // Add signature image
+        let img = document.createElement('img')
+        img.id = 'ttd-image'
+        img.src = publicPath + 'uploads/' + data.ttd_pemohon
+        img.alt = 'Tanda Tangan Pemohon'
+        img.style.width = '100%'
+        img.style.maxWidth = '300px'
+        $("#mdl-ttd").append(img)
     }
+
+    $('#mdl-proposal').click(() => {
+        window.open(publicPath + 'uploads/' + selectedApp.surat_permohonan, '_blank')
+    })
+
+    $('#mdl-ttd').click(() => {
+        window.open(publicPath + 'uploads/' + selectedApp.ttd_pemohon, '_blank')
+    })
 </script>

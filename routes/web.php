@@ -23,6 +23,4 @@ Route::get('/masuk', function () {
     return view('auth.login');
 });
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
+Route::get('/admin', [Controllers\AdminController::class, 'index']);

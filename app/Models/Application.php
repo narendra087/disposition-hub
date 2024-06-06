@@ -24,6 +24,7 @@ class Application extends Model
         'jumlah_peserta',
         'tempat_kegiatan',
         'surat_permohonan',
-        'ttd_pemohon'
+        'ttd_pemohon',
+        'disposisi'
     ];
 }
