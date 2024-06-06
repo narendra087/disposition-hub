@@ -21,13 +21,13 @@ return new class extends Migration
             $table->string('email');
             $table->string('jabatan');
             $table->string('program_studi');
-            $table->string('organisasi');
+            $table->string('organisasi')->nullable();
             $table->string('judul');
             $table->string('tgl_mulai');
             $table->string('tgl_akhir');
-            $table->string('peserta');
-            $table->string('jumlah_peserta');
-            $table->string('tempat_kegiatan');
+            $table->string('peserta')->nullable();
+            $table->string('jumlah_peserta')->nullable();
+            $table->string('tempat_kegiatan')->nullable();
             $table->string('surat_permohonan');
             $table->string('ttd_pemohon');
             $table->timestamps();
