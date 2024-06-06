@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('dispositions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('applicationId');
-            $table->foreign('applicationId')->references('id')->on('applications')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('application_id');
+            $table->foreign('application_id')->references('id')->on('applications')->onDelete('cascade')->onUpdate('cascade');
             $table->string('kode');
             $table->timestamps();
         });

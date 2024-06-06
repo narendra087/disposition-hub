@@ -15,21 +15,21 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('namaPemohon');
-            $table->string('idPemohon');
-            $table->string('noWA');
+            $table->text('nama_pemohon');
+            $table->string('id_pemohon');
+            $table->string('no_wa');
             $table->string('email');
             $table->string('jabatan');
-            $table->string('programStudi');
-            $table->string('namaorganisasi');
+            $table->string('program_studi');
+            $table->string('organisasi');
             $table->string('judul');
-            $table->string('tglMulai');
-            $table->string('tglAkhir');
+            $table->string('tgl_mulai');
+            $table->string('tgl_akhir');
             $table->string('peserta');
-            $table->string('jumlahPeserta');
-            $table->string('tempatKegiatan');
-            $table->string('filePermohonan');
-            $table->string('fileTtd');
+            $table->string('jumlah_peserta');
+            $table->string('tempat_kegiatan');
+            $table->string('surat_permohonan');
+            $table->string('ttd_pemohon');
             $table->timestamps();
         });
     }
