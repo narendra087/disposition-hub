@@ -1,5 +1,5 @@
 @php
-    $tableHeader = ['Tanggal', 'Pemohon', 'Program Studi', 'Judul', 'Tanggal Mulai', 'Tanggal Akhir'];
+    $tableHeader = ['Tanggal', 'Pemohon', 'Program Studi', 'Judul', 'Tanggal Mulai', 'Tanggal Akhir', 'Status'];
 @endphp
 
 <x-app-layout>
@@ -42,6 +42,30 @@
                             </td>
                             <td class="px-6 py-4">
                                 {{ $app['tgl_akhir'] }}
+                            </td>
+                            <td class="px-6 py-4">
+                                @switch($app['status'])
+                                    @case(-1)
+                                        <span
+                                            class="me-2 rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">Ditolak</span>
+                                    @break
+
+                                    @case(1)
+                                        <span
+                                            class="me-2 rounded bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Dalam
+                                            Proses</span>
+                                    @break
+
+                                    @case(2)
+                                        <span
+                                            class="me-2 rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800 dark:bg-red-900 dark:text-red-300">Selesai</span>
+                                    @break
+
+                                    @default
+                                        <span
+                                            class="me-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300">Permohonan
+                                            Baru</span>
+                                @endswitch
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <button onclick="saveDispositionData({{ json_encode($app) }})"
@@ -138,12 +162,13 @@
                                 class="cursor-pointer font-normal text-gray-500 underline dark:text-gray-400"></span>
                         </p>
 
-                        <p id="mdl-ttd" class="text-base font-medium text-gray-900 dark:text-white">Tanda Tangan:
+                        <p id="mdl-ttd" class="w-max text-base font-medium text-gray-900 dark:text-white">Tanda
+                            Tangan:
                         </p>
                     </div>
                 </div>
                 <!-- Modal footer -->
-                <div
+                <div id="mdl-footer"
                     class="flex items-center justify-between gap-2 rounded-b border-t border-gray-200 p-4 dark:border-gray-600 md:p-5">
                     <div class="flex items-center gap-2">
                         <button data-modal-hide="disposition-detail" type="button"
@@ -162,7 +187,7 @@
                                 autocomplete="kode"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6">
                             <button type="submit"
-                                class="rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Kirim
+                                class="w-full rounded-lg bg-green-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Kirim
                                 Disposisi</button>
                         </div>
                     </form>
@@ -177,8 +202,10 @@
     const publicPath = '{{ asset('') }}';
     let selectedApp = null;
 
+
     window.saveDispositionData = (data) => {
         selectedApp = data
+        console.log(data)
         $("#mdl-nama-pemohon").text(data.nama_pemohon);
         $("#mdl-id-pemohon").text(data.id_pemohon);
         $("#mdl-no-wa").text(data.no_wa);
@@ -207,6 +234,12 @@
         img.style.width = '100%'
         img.style.maxWidth = '300px'
         $("#mdl-ttd").append(img)
+
+        if (data.status) {
+            $("#mdl-footer").hide();
+        } else {
+            $("#mdl-footer").show();
+        }
     }
 
     $('#mdl-proposal').click(() => {
@@ -221,6 +254,11 @@
     $(document).ready(function() {
         $('#kirim-disposisi').on('submit', function(e) {
             e.preventDefault()
+
+            if (selectedApp.status) {
+                alert('Permohonan sudah pernah diproses!')
+                return
+            }
 
             const data = {
                 _token: "{{ csrf_token() }}",

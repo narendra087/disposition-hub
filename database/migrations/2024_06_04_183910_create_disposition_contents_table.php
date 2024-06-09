@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('forward_id');
             $table->string('content');
+            $table->integer('status')->nullable();
             $table->foreign('disposition_id')->references('id')->on('dispositions')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('application_id')->references('id')->on('applications')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

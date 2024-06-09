@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('tempat_kegiatan')->nullable();
             $table->string('surat_permohonan');
             $table->string('ttd_pemohon');
-            $table->integer('disposisi');
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

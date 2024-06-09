@@ -11,6 +11,7 @@ class Disposition extends Model
 
     protected $fillable = [
         'application_id',
-        'kode'
+        'kode',
+        'status'
     ];
 }

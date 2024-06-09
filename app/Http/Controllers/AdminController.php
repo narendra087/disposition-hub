@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $applications = Application::get();
+        $applications = Application::orderBy('status', 'asc')->orderBy('created_at', 'desc')->get();
 
         return view('admin.dashboard', [
             'applications' => $applications
@@ -19,9 +19,16 @@ class AdminController extends Controller
 
     public function sendDisposition(Request $request)
     {
+        $application = Application::findOrFail($request->application_id);
+
+        $application->update([
+            'status' => 1
+        ]);
+
         $request->validate([
             'application_id' => ['required'],
             'kode' => ['required'],
+            'status' => ['nullable']
         ]);
 
         Disposition::create($request->all());

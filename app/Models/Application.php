@@ -25,6 +25,7 @@ class Application extends Model
         'tempat_kegiatan',
         'surat_permohonan',
         'ttd_pemohon',
-        'disposisi'
+        'disposisi',
+        'status',
     ];
 }
