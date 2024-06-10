@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\IsAdmin;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers;
 
-Route::get('/', [Controllers\ApplicationController::class, 'index']);
-
+Route::get('/', [Controllers\ApplicationController::class, 'index'])->name('application');
 Route::post('/', [Controllers\ApplicationController::class, 'store']);
 
-Route::get('/masuk', function () {
-    return view('auth.login');
-});
+Route::get('/masuk', [Controllers\LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/masuk', [Controllers\LoginController::class, 'authenticate']);
 
-Route::get('/admin', [Controllers\AdminController::class, 'index']);
+Route::post('/logout', Controllers\LogoutController::class)->name('logout')->middleware('auth');
+
+Route::get('/admin', [Controllers\AdminController::class, 'index'])->middleware(IsAdmin::class);
 Route::post('/kirim-disposisi', [Controllers\AdminController::class, 'sendDisposition'])->name('admin.send_disposition');
 
-Route::get('/dashboard', [Controllers\UserController::class, 'index']);
+Route::get('/dashboard', [Controllers\UserController::class, 'index'])->name('dashboard')->middleware('auth');
 

@@ -1,4 +1,4 @@
-<form action="/" method="POST" enctype="multipart/form-data" novalidate>
+<form action="{{ route('application') }}" method="POST" enctype="multipart/form-data" novalidate>
     @csrf
     <div class="mx-auto max-w-3xl space-y-12 rounded-lg bg-white p-6">
 
