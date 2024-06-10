@@ -205,7 +205,6 @@
 
     window.saveDispositionData = (data) => {
         selectedApp = data
-        console.log(data)
         $("#mdl-nama-pemohon").text(data.nama_pemohon);
         $("#mdl-id-pemohon").text(data.id_pemohon);
         $("#mdl-no-wa").text(data.no_wa);

@@ -12,7 +12,7 @@ class AdminController extends Controller
     {
         $applications = Application::orderBy('status', 'asc')->orderBy('created_at', 'desc')->get();
 
-        return view('admin.dashboard', [
+        return view('admin.dashboard-admin', [
             'applications' => $applications
         ]);
     }
