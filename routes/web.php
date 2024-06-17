@@ -24,8 +24,9 @@ Route::post('/masuk', [Controllers\LoginController::class, 'authenticate']);
 
 Route::post('/logout', Controllers\LogoutController::class)->name('logout')->middleware('auth');
 
-Route::get('/admin', [Controllers\AdminController::class, 'index'])->middleware(IsAdmin::class);
+Route::get('/admin', [Controllers\AdminController::class, 'index'])->name('admin')->middleware(IsAdmin::class);
 Route::post('/kirim-disposisi', [Controllers\AdminController::class, 'sendDisposition'])->name('admin.send_disposition');
 
-Route::get('/dashboard', [Controllers\UserController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('/dasbor', [Controllers\UserController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::post('/teruskan-disposisi', [Controllers\UserController::class, 'forwardDisposition'])->name('user.forward_disposition');
 

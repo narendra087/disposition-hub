@@ -270,7 +270,10 @@
                 method: 'POST',
                 data,
                 success: function(response) {
-                    alert('Form berhasil dikirim!');
+                    alert('Disposisi berhasil dikirim!');
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 500);
                 },
                 error: function(xhr) {
                     alert('Terjadi kesalahan: ' + xhr.status + ' ' + xhr.statusText);
