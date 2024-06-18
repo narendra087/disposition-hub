@@ -104,67 +104,113 @@
                 </div>
                 <!-- Modal body -->
                 <div class="h-full max-h-[calc(100vh-15rem)] space-y-4 overflow-y-auto p-4 md:p-5">
-                    <h2 class="text-lg font-medium">Data Pemohon:</h2>
-                    <div>
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Nama:
-                            <span id="mdl-nama-pemohon" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
+                    <div class="flex flex-col gap-4 md:flex-row">
+                        <div class="space-y-4">
+                            <h2 class="text-lg font-medium">Data Pemohon:</h2>
+                            <div>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Nama:
+                                    <span id="mdl-nama-pemohon"
+                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
 
-                        <p class="text-base font-medium text-gray-900 dark:text-white">NIP/NUP/NIM:
-                            <span id="mdl-id-pemohon" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">NIP/NUP/NIM:
+                                    <span id="mdl-id-pemohon"
+                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
 
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Nomor Whatsapp:
-                            <span id="mdl-no-wa" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Nomor Whatsapp:
+                                    <span id="mdl-no-wa" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
 
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Email:
-                            <span id="mdl-email" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Email:
+                                    <span id="mdl-email" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
 
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Jabatan:
-                            <span id="mdl-jabatan" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Jabatan:
+                                    <span id="mdl-jabatan" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
 
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Program Studi:
-                            <span id="mdl-program-studi" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Program Studi:
+                                    <span id="mdl-program-studi"
+                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
 
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Organisasi:
-                            <span id="mdl-organisasi" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
-                    </div>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Organisasi:
+                                    <span id="mdl-organisasi"
+                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
+                            </div>
 
-                    <h2 class="text-lg font-medium">Data Permohonan:</h2>
-                    <div>
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Tanggal Mulai:
-                            <span id="mdl-tgl-mulai" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
+                            <h2 class="text-lg font-medium">Data Permohonan:</h2>
+                            <div>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Tanggal Mulai:
+                                    <span id="mdl-tgl-mulai"
+                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
 
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Tanggal Selesai:
-                            <span id="mdl-tgl-akhir" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Tanggal Selesai:
+                                    <span id="mdl-tgl-akhir"
+                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
 
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Peserta:
-                            <span id="mdl-peserta" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Peserta:
+                                    <span id="mdl-peserta" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
 
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Jumlah Peserta:
-                            <span id="mdl-jumlah-peserta" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Jumlah Peserta:
+                                    <span id="mdl-jumlah-peserta"
+                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
 
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Tempat Kegiatan:
-                            <span id="mdl-tempat-kegiatan" class="font-normal text-gray-500 dark:text-gray-400"></span>
-                        </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Tempat Kegiatan:
+                                    <span id="mdl-tempat-kegiatan"
+                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
 
-                        <p class="text-base font-medium text-gray-900 dark:text-white">Surat Permohonan / Proposal:
-                            <span id="mdl-proposal"
-                                class="cursor-pointer font-normal text-gray-500 underline dark:text-gray-400"></span>
-                        </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Surat Permohonan /
+                                    Proposal:
+                                    <span id="mdl-proposal"
+                                        class="cursor-pointer font-normal text-gray-500 underline dark:text-gray-400"></span>
+                                </p>
 
-                        <p id="mdl-ttd" class="w-max text-base font-medium text-gray-900 dark:text-white">Tanda
-                            Tangan:
-                        </p>
+                                <p id="mdl-ttd" class="w-max text-base font-medium text-gray-900 dark:text-white">
+                                    Tanda
+                                    Tangan:
+                                </p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h2 class="text-lg font-medium">Data Isi Disposisi:</h2>
+
+                            <p class="text-base font-medium text-gray-900 dark:text-white">Indeks:
+                                <span id="mdl-indek"
+                                    class="font-normal text-gray-500 dark:text-gray-400"></span>
+                            </p>
+                            <p class="text-base font-medium text-gray-900 dark:text-white">Kode:
+                                <span id="mdl-kode"
+                                    class="font-normal text-gray-500 dark:text-gray-400"></span>
+                            </p>
+                            <div class="relative overflow-x-auto">
+                                <table id="tbl-konten"
+                                    class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+                                    <thead
+                                        class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3">No</th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Isi disposisi
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Diteruskan kepada
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="list-konten">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
                 <!-- Modal footer -->
@@ -180,7 +226,7 @@
                             Disposisi</button>
                     </div>
 
-                    <form id="kirim-disposisi" method="POST">
+                    <form id="kirim-disposisi" method="POST" class="m-0">
                         <div class="flex items-center gap-2">
                             @csrf
                             <input required placeholder="Kode" type="text" name="kode" id="kode"
@@ -218,7 +264,8 @@
         $("#mdl-peserta").text(data.peserta ? data.peserta : '-');
         $("#mdl-jumlah-peserta").text(data.jumlah_peserta ? data.jumlah_peserta : '-');
         $("#mdl-tempat-kegiatan").text(data.tempat_kegiatan ? data.tempat_kegiatan : '-');
-        $("#mdl-proposal").text(data.surat_permohonan);
+        $("#mdl-indek").text(data?.id_disposisi || '-');
+        $("#mdl-kode").text(data?.kode_disposisi || '-');
 
         // Remove old signature image
         const oldImage = document.getElementById('ttd-image');
@@ -239,6 +286,59 @@
         } else {
             $("#mdl-footer").show();
         }
+
+        // Remove old content
+        const oldContent = document.getElementById('list-konten');
+        if (oldContent) {
+            oldContent.remove()
+        }
+        // find forward name
+        const findForward = (id) => {
+            let forwardName = ''
+            switch (id) {
+                case 3:
+                    forwardName = 'Wakil Dekan 1'
+                    break;
+                case 4:
+                    forwardName = 'Wakil Dekan 2'
+                    break;
+                case 5:
+                    forwardName = 'Wakil Dekan 3'
+                    break;
+                case 6:
+                    forwardName = 'Kepala TU'
+                    break;
+                case 7:
+                    forwardName = 'Sub Koor'
+                    break;
+                case 8:
+                    forwardName = 'Tendik'
+                default:
+                    break;
+            }
+
+            return forwardName
+        }
+        // Add new content
+        let tbody = document.createElement('tbody')
+        tbody.id = 'list-konten'
+        selectedApp.konten.forEach((elm, index) => {
+            const htmlContent = `<tr class="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
+                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                    ${index + 1}
+                </td>
+                <td class="px-6 py-4">
+                    ${elm.content}
+                </td>
+                <td class="px-6 py-4">
+                    ${findForward(elm.forward_id)}
+                </td>
+            </tr>`
+            tbody.innerHTML += (htmlContent)
+        });
+
+        const tableContent = document.getElementById('tbl-konten');
+        tableContent.append(tbody)
     }
 
     $('#mdl-proposal').click(() => {

@@ -23,6 +23,7 @@ class UserController extends Controller
                 'applications.*',
                 // get disposition data
                 'dispositions.id as id_disposisi',
+                'dispositions.kode as kode_disposisi',
                 'dispositions.status as status_disposisi',
                 'dispositions.created_at as tanggal_disposisi',
                 // get content data

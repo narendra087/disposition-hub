@@ -194,6 +194,14 @@
                             <div class="space-y-4">
                                 <h2 class="text-lg font-medium">Data Isi Disposisi:</h2>
 
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Indeks:
+                                    <span id="mdl-indek"
+                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Kode:
+                                    <span id="mdl-kode"
+                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
                                 <div class="relative overflow-x-auto">
                                     <table id="tbl-konten"
                                         class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
@@ -220,7 +228,7 @@
                 </div>
                 <!-- Modal footer -->
                 <div id="mdl-footer" class="rounded-b border-t border-gray-200 p-4 dark:border-gray-600 md:p-5">
-                    <form id="kirim-disposisi" method="POST">
+                    <form id="kirim-disposisi" method="POST" class="m-0">
                         <div class="flex items-center justify-between gap-2">
                             @csrf
                             @if (Auth::user()->id === 8)
@@ -293,6 +301,8 @@
         $("#mdl-jumlah-peserta").text(data.jumlah_peserta ? data.jumlah_peserta : '-');
         $("#mdl-tempat-kegiatan").text(data.tempat_kegiatan ? data.tempat_kegiatan : '-');
         $("#mdl-proposal").text(data.surat_permohonan);
+        $("#mdl-indek").text(data?.id_disposisi || '-');
+        $("#mdl-kode").text(data?.kode_disposisi || '-');
 
         // Remove old signature image
         const oldImage = document.getElementById('ttd-image');
