@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('dispositions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('forward_id');
             $table->unsignedBigInteger('application_id');
+            $table->foreign('forward_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('application_id')->references('id')->on('applications')->onDelete('cascade')->onUpdate('cascade');
             $table->string('kode');
             $table->integer('status')->nullable();

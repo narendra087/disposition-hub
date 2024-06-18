@@ -55,7 +55,12 @@ class AdminController extends Controller
             'status' => ['nullable']
         ]);
 
-        Disposition::create($request->all());
+        Disposition::create([
+            'forward_id' => 2,
+            'application_id' => $request->application_id,
+            'kode' => $request->kode,
+            'status' => $request->status
+        ]);
 
         return redirect('/admin')->with('success', 'Disposisi berhasil dikirim.');
     }

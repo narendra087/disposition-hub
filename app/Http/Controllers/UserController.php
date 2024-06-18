@@ -35,13 +35,15 @@ class UserController extends Controller
         if ($user->role_id === 1) {
             return to_route('admin');
         } else if ($user->role_id === 2) {
-            $query->whereNull('dispositions.status');
+            $query->where('disposition_contents.user_id', $user->id);
         } else {
             $query->where('disposition_contents.forward_id', $user->id);
-            $query->whereNull('disposition_contents.status');
         }
 
-        $dispositions = $query->orderBy('dispositions.created_at')->get();
+        $dispositions = $query
+            ->orderBy('dispositions.status', 'asc')
+            ->orderBy('dispositions.created_at', 'desc')
+            ->get();
 
         foreach ($dispositions as $disposition) {
             $disposition->tanggal_disposisi = Carbon::parse($disposition->tanggal_disposisi)->format('Y-m-d');
@@ -71,11 +73,6 @@ class UserController extends Controller
             'content' => ['required'],
         ]);
 
-        $disposition = Disposition::findOrFail($request->disposition_id);
-        $disposition->update([
-            'status' => 1
-        ]);
-
         $forwardId = 0;
         switch ($user->id) {
             case 2:
@@ -91,14 +88,20 @@ class UserController extends Controller
                 break;
         }
 
+        $disposition = Disposition::findOrFail($request->disposition_id);
+        $disposition->update([
+            'status' => 1,
+            'forward_id' => $forwardId
+        ]);
+
         if ($request->content_id) {
             $konten = DispositionContent::findOrFail($request->content_id);
             $konten->update([
-                'status' => 1
+                'status' => 1,
             ]);
         }
 
-        $data = DispositionContent::create([
+        DispositionContent::create([
             'user_id' => $user->id,
             'application_id' => $request->application_id,
             'disposition_id' => $request->disposition_id,

@@ -190,40 +190,39 @@
                             </div>
                         </div>
 
-                        @if (Auth::user()->id !== 2)
-                            <div class="space-y-4">
-                                <h2 class="text-lg font-medium">Data Isi Disposisi:</h2>
+                        <div class="space-y-4">
+                            <h2 class="text-lg font-medium">Data Isi Disposisi:</h2>
 
+                            <div>
                                 <p class="text-base font-medium text-gray-900 dark:text-white">Indeks:
-                                    <span id="mdl-indek"
-                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                    <span id="mdl-indek" class="font-normal text-gray-500 dark:text-gray-400"></span>
                                 </p>
                                 <p class="text-base font-medium text-gray-900 dark:text-white">Kode:
-                                    <span id="mdl-kode"
-                                        class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                    <span id="mdl-kode" class="font-normal text-gray-500 dark:text-gray-400"></span>
                                 </p>
-                                <div class="relative overflow-x-auto">
-                                    <table id="tbl-konten"
-                                        class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
-                                        <thead
-                                            class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
-                                            <tr>
-                                                <th scope="col" class="px-6 py-3">No</th>
-                                                <th scope="col" class="px-6 py-3">
-                                                    Isi disposisi
-                                                </th>
-                                                <th scope="col" class="px-6 py-3">
-                                                    Diteruskan kepada
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="list-konten">
-                                        </tbody>
-                                    </table>
-                                </div>
-
                             </div>
-                        @endif
+
+                            <div class="relative overflow-x-auto">
+                                <table id="tbl-konten"
+                                    class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+                                    <thead
+                                        class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3">No</th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Isi disposisi
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Diteruskan kepada
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="list-konten">
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
                 <!-- Modal footer -->
@@ -281,6 +280,7 @@
 
 <script type="module">
     const publicPath = '{{ asset('') }}';
+    const userId = '{{ Auth::user()->id }}';
     let selectedDispo = null;
 
 
@@ -319,7 +319,7 @@
         $("#mdl-ttd").append(img)
 
         // CHECK FOOTER
-        if (data.status_disposisi && data.status_konten) {
+        if (userId <= 2 && data.status_disposisi || data.status_konten) {
             $("#mdl-footer").hide();
         } else {
             $("#mdl-footer").show();

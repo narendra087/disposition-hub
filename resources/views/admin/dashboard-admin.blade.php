@@ -182,14 +182,15 @@
                         <div class="space-y-4">
                             <h2 class="text-lg font-medium">Data Isi Disposisi:</h2>
 
-                            <p class="text-base font-medium text-gray-900 dark:text-white">Indeks:
-                                <span id="mdl-indek"
-                                    class="font-normal text-gray-500 dark:text-gray-400"></span>
-                            </p>
-                            <p class="text-base font-medium text-gray-900 dark:text-white">Kode:
-                                <span id="mdl-kode"
-                                    class="font-normal text-gray-500 dark:text-gray-400"></span>
-                            </p>
+                            <div>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Indeks:
+                                    <span id="mdl-indek" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
+                                <p class="text-base font-medium text-gray-900 dark:text-white">Kode:
+                                    <span id="mdl-kode" class="font-normal text-gray-500 dark:text-gray-400"></span>
+                                </p>
+                            </div>
+
                             <div class="relative overflow-x-auto">
                                 <table id="tbl-konten"
                                     class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
@@ -264,6 +265,7 @@
         $("#mdl-peserta").text(data.peserta ? data.peserta : '-');
         $("#mdl-jumlah-peserta").text(data.jumlah_peserta ? data.jumlah_peserta : '-');
         $("#mdl-tempat-kegiatan").text(data.tempat_kegiatan ? data.tempat_kegiatan : '-');
+        $("#mdl-proposal").text(data.surat_permohonan);
         $("#mdl-indek").text(data?.id_disposisi || '-');
         $("#mdl-kode").text(data?.kode_disposisi || '-');
 

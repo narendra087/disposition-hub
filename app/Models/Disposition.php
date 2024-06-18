@@ -10,6 +10,7 @@ class Disposition extends Model
     use HasFactory;
 
     protected $fillable = [
+        'forward_id',
         'application_id',
         'kode',
         'status'
